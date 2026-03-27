@@ -17,32 +17,136 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
+  <body>
+  <a class="skip-link" href="#main-content">Перейти до основного вмісту</a>
+
+  <header class="site-header" role="banner">
     <div class="container">
       <p class="eyebrow">Bachelor Thesis Landing Page</p>
-      <h1>Zero Secret Server Authentication</h1>
-      <p class="subtitle">
+      <h1 id="page-title">Zero Secret Server Authentication</h1>
+      <p class="subtitle" id="page-summary">
         Односторінковий вебсайт для представлення бакалаврської роботи.
       </p>
+
+      <nav class="site-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="#overview">Огляд</a></li>
+          <li><a href="#research">Дослідження</a></li>
+          <li><a href="#methodology">Методологія</a></li>
+          <li><a href="#results">Результати</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main class="site-main">
-    <section class="hero">
+  <main id="main-content" class="site-main">
+    <section id="overview" class="hero" aria-labelledby="hero-title" aria-describedby="page-summary">
       <div class="container">
-        <h2>Демонстраційний лендінг проєкту</h2>
-        <p>
-          тут буде представлено опис теми, мету дослідження, завдання,
-          очікувані результати та контактну інформацію.
-        </p>
+        <figure class="hero-media">
+          <img
+            src="apple-touch-icon.png"
+            alt="Іконка проєкту Zero Secret Server Authentication у вигляді стилізованого замка"
+            width="180"
+            height="180"
+          >
+          <figcaption class="visually-hidden">
+            Графічний символ, що представляє безпечну автентифікацію.
+          </figcaption>
+        </figure>
+
+        <div class="hero-copy">
+          <h2 id="hero-title">Огляд бакалаврської роботи</h2>
+          <p>
+            Лендінг презентує тему, основні ідеї, методологію дослідження
+            та очікувані результати бакалаврської роботи.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" aria-labelledby="research-title">
+      <div class="container">
+        <h2 id="research-title">Про дослідження</h2>
+
+        <article aria-labelledby="topic-title">
+          <h3 id="topic-title">Тема роботи</h3>
+          <p>
+            Методологія та інструментальні засоби розробки систем
+            автентифікації за моделлю Zero Secret Server Authentication.
+          </p>
+        </article>
+
+        <article aria-labelledby="relevance-title">
+          <h3 id="relevance-title">Актуальність</h3>
+          <p>
+            Дослідження присвячене підходам до побудови систем автентифікації,
+            у яких мінімізується залежність від серверного зберігання секретів.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="methodology" aria-labelledby="methodology-title">
+      <div class="container">
+        <h2 id="methodology-title">Методологія</h2>
+
+        <article aria-labelledby="approach-title">
+          <h3 id="approach-title">Підхід до реалізації</h3>
+          <p>
+            У роботі розглядаються принципи клієнтського шифрування, stateless-підхід
+            до автентифікації та використання сучасних інструментів веброзробки.
+          </p>
+        </article>
+
+        <article aria-labelledby="technical-focus-title">
+          <h3 id="technical-focus-title">Технічні акценти</h3>
+          <h4>Ключові напрями</h4>
+          <ul>
+            <li>безпечне зберігання даних;</li>
+            <li>архітектура без серверних секретів;</li>
+            <li>підтримка сучасних вебтехнологій;</li>
+            <li>зручність і безпечність інтерфейсу.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="results" aria-labelledby="results-title">
+      <div class="container">
+        <h2 id="results-title">Очікувані результати</h2>
+
+        <article aria-labelledby="practical-result-title">
+          <h3 id="practical-result-title">Практичний результат</h3>
+          <p>
+            Створення демонстраційного прототипу лендінгу та технічної основи
+            для подальшого розвитку бакалаврського проєкту.
+          </p>
+        </article>
+
+        <article aria-labelledby="research-result-title">
+          <h3 id="research-result-title">Дослідницький результат</h3>
+          <p>
+            Формалізація підходів до створення систем автентифікації за моделлю
+            Zero Secret Server Authentication.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <h2 id="contacts-title">Контакти</h2>
+        <address>
+          Контактна інформація буде уточнена на етапі наповнення контентом.
+        </address>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <p>© 2026 Bachelor Thesis Project</p>
     </div>
   </footer>
 </body>
-</html>

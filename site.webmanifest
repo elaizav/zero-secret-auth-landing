@@ -1,0 +1,15 @@
+{
+  "name": "Zero Secret Server Authentication Landing",
+  "short_name": "ZSSA Landing",
+  "start_url": "/zero-secret-auth-landing/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

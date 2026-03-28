@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Розгорнутий опис дослідження — Zero Secret Server Authentication</title>
+  <meta name="description" content="Розгорнутий публічний опис бакалаврського дослідження про Zero Secret Server Authentication: тема, актуальність, методологія, задачі, результати та межі публікації.">
+  <meta name="keywords" content="Zero Secret Server Authentication, розгорнутий опис дослідження, публічні матеріали проєкту, бакалаврська робота">
+  <meta name="author" content="Yelyzaveta Kim">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://elaizav.github.io/zero-secret-auth-landing/materials/">
+  <meta property="og:title" content="Розгорнутий опис дослідження — Zero Secret Server Authentication">
+  <meta property="og:description" content="Публічна сторінка з розгорнутим описом теми, методології, задач і очікуваних результатів дослідження.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://elaizav.github.io/zero-secret-auth-landing/materials/">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:image" content="https://elaizav.github.io/zero-secret-auth-landing/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Розгорнутий опис дослідження / повний текст публічних матеріалів проєкту",
+    "author": {
+      "@type": "Person",
+      "name": "Yelyzaveta Kim"
+    },
+    "inLanguage": "uk",
+    "mainEntityOfPage": "https://elaizav.github.io/zero-secret-auth-landing/materials/",
+    "url": "https://elaizav.github.io/zero-secret-auth-landing/materials/",
+    "description": "Публічні матеріали проєкту щодо методології й інструментальних засобів розробки систем автентифікації за моделлю Zero Secret Server Authentication."
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти до основного вмісту</a>
+  <header class="header" id="top">
+    <div class="container nav">
+      <a class="logo" href="../" aria-label="Повернутися на головну сторінку">
+        <img src="../favicon.svg" alt="" width="24" height="24">
+        <span>Zero Secret Auth</span>
+      </a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-menu" id="site-menu" aria-label="Навігація сторінкою матеріалів">
+        <a class="nav-link" href="#status">Статус</a>
+        <a class="nav-link" href="#content">Зміст</a>
+        <a class="nav-link" href="#architecture">Архітектура</a>
+        <a class="nav-link" href="#limitations">Обмеження</a>
+        <a class="nav-link" href="#contacts">Контакти</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero hero--compact" id="status" aria-labelledby="materials-hero-title">
+      <div class="container hero__grid hero__grid--single">
+        <div class="hero__content">
+          <p class="eyebrow">Публічні матеріали проєкту</p>
+          <h1 id="materials-hero-title">Розгорнутий опис дослідження / повний текст публічних матеріалів проєкту</h1>
+          <p class="hero__subtitle">Ця сторінка публікує розширений академічний опис теми, але не позиціонується як офіційний фінальний текст захищеної бакалаврської роботи, якщо такий текст не був окремо верифікований і оприлюднений.</p>
+          <p class="hero__text">Тема дослідження: «Методологія та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication» / “Methodology and Instrumental Tools for Developing Authentication Systems Based on the Zero Secret Server Authentication Model”.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="content" aria-labelledby="content-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">01 · Зміст</p>
+          <h2 id="content-title">Предмет, мета і задачі дослідження</h2>
+        </div>
+        <div class="grid grid--2">
+          <article class="card">
+            <h3>Короткий опис</h3>
+            <p>Дослідження присвячене проєктуванню систем автентифікації, у яких сервер мінімізує або усуває необхідність зберігання секретів користувача. Центральна ідея полягає в перенесенні частини критично важливих механізмів на клієнтську сторону та в побудові протоколу, де сервер працює з верифікаційними артефактами, сесіями та службовими метаданими.</p>
+          </article>
+          <article class="card">
+            <h3>Мета</h3>
+            <p>Сформувати методологію аналізу та добору інструментальних засобів для розробки безпечної системи автентифікації за моделлю Zero Secret Server Authentication, а також підготувати описову основу для майбутнього демонстраційного прототипу.</p>
+          </article>
+        </div>
+        <div class="grid grid--2 grid--spaced">
+          <article class="card">
+            <h3>Основні завдання</h3>
+            <ol class="materials-list">
+              <li>Проаналізувати сучасні схеми автентифікації та їхні типові ризики.</li>
+              <li>Описати принципи Zero Secret Server Authentication і межі застосування моделі.</li>
+              <li>Порівняти інструментальні підходи для вебреалізації з погляду безпеки й практичності.</li>
+              <li>Сформувати цільову архітектуру системи та описати її ключові ролі.</li>
+              <li>Підготувати структуру публічних матеріалів і базу для наступної реалізації прототипу.</li>
+            </ol>
+          </article>
+          <article class="card">
+            <h3>Очікувані результати</h3>
+            <ul class="materials-list">
+              <li>Узгоджений опис архітектури без серверного зберігання секретів користувача.</li>
+              <li>Перелік інструментів і практик для безпечної вебреалізації.</li>
+              <li>Обґрунтування вибору підходів для клієнтської криптографії та сесійної логіки.</li>
+              <li>Публічний академічний лендінг і сторінка матеріалів, придатні для GitHub Pages.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section section--muted" id="architecture" aria-labelledby="architecture-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">02 · Архітектурна ідея</p>
+          <h2 id="architecture-title">Як описується zero-secret підхід у межах цього проєкту</h2>
+        </div>
+        <div class="grid grid--2">
+          <figure class="card visual-card">
+            <img src="../assets/zero-secret-architecture.svg" alt="Схема взаємодії клієнта, сервера та перевірочних артефактів у Zero Secret моделі" width="640" height="420" loading="lazy" decoding="async">
+            <figcaption>Ілюстрація демонструє узагальнену логіку: секрет формується і використовується на клієнті, а сервер працює з запитом, перевіркою та сесійним результатом.</figcaption>
+          </figure>
+          <article class="card">
+            <h3>Пояснення схеми</h3>
+            <p>Узагальнений сценарій передбачає, що користувач взаємодіє з клієнтським застосунком, який виконує обчислення, пов'язані з локальним секретом. Сервер отримує лише ті дані, що достатні для перевірки запиту або видачі сесійного результату, але не вимагають збереження початкового секрету в явному вигляді.</p>
+            <p>У межах цієї сторінки не робляться неправдиві твердження про готовий захищений продакшн-протокол. Матеріал описує дослідницький напрям, архітектурну логіку та критерії для подальшої реалізації.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="limitations" aria-labelledby="limitations-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">03 · Межі публікації</p>
+          <h2 id="limitations-title">Що ця сторінка стверджує, а чого не стверджує</h2>
+        </div>
+        <div class="grid grid--2">
+          <article class="card">
+            <h3>Що опубліковано чесно</h3>
+            <ul class="materials-list">
+              <li>Тема бакалаврського дослідження в українській та англійській формах.</li>
+              <li>Короткий опис, мета, завдання, методологія та очікувані результати.</li>
+              <li>Візуальні матеріали для академічної презентації концепції.</li>
+              <li>Публічний репозиторій зі статичним кодом лендінгу та git-історією.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Що навмисно не вигадується</h3>
+            <ul class="materials-list">
+              <li>Не заявляється наявність офіційно оприлюдненого фінального тексту бакалаврської роботи без верифікованого джерела.</li>
+              <li>Не додаються вигадані академічні результати, яких не показано в репозиторії.</li>
+              <li>Не публікується неперевірений логотип конкретного університету.</li>
+              <li>Не зазначаються неіснуючі контактні дані або неідентифіковані наукові керівники.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section section--muted" id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">04 · Контакти</p>
+          <h2 id="contacts-title">Авторка та публічні посилання</h2>
+        </div>
+        <div class="grid grid--2">
+          <article class="card contact-card">
+            <h3>Авторка проєкту</h3>
+            <p><strong>Yelyzaveta Kim</strong></p>
+            <p>GitHub: <a href="https://github.com/elaizav">github.com/elaizav</a></p>
+            <p>Репозиторій: <a href="https://github.com/elaizav/zero-secret-auth-landing">zero-secret-auth-landing</a></p>
+          </article>
+          <article class="card contact-card">
+            <h3>Навігація</h3>
+            <p><a href="../">Повернутися на головну сторінку</a></p>
+            <p><a href="../en/">Відкрити англомовну версію</a></p>
+            <p><a href="#top">Повернутися вгору</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 Public Project Materials</p>
+      <a href="../">На головну</a>
+    </div>
+  </footer>
+  <script src="../script.js"></script>
+</body>
+</html>

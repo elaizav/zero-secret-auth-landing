@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">University logo placeholder</title>
+  <desc id="desc">A clearly labeled neutral placeholder used because no verified public university identity is provided in the repository.</desc>
+  <rect width="240" height="240" rx="36" fill="#f8fafc"/>
+  <rect x="18" y="18" width="204" height="204" rx="28" fill="#e2e8f0" stroke="#94a3b8" stroke-width="4" stroke-dasharray="10 10"/>
+  <path d="M120 56 58 86l62 30 62-30z" fill="#1e293b"/>
+  <path d="M78 98v28c0 22 18 40 42 40s42-18 42-40V98" fill="none" stroke="#1e293b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="120" cy="126" r="16" fill="#93c5fd"/>
+  <text x="120" y="192" text-anchor="middle" fill="#334155" font-size="18" font-family="Inter, Arial, sans-serif" font-weight="700">UNIVERSITY</text>
+  <text x="120" y="214" text-anchor="middle" fill="#64748b" font-size="13" font-family="Inter, Arial, sans-serif">verified logo not published</text>
+</svg>

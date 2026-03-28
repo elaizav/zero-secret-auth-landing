@@ -2,13 +2,16 @@ const burger = document.getElementById('burger');
 const menu = document.getElementById('site-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const sectionTargets = document.querySelectorAll('main section[id]');
+const isUkrainian = document.documentElement.lang === 'uk';
+const openLabel = isUkrainian ? 'Відкрити меню' : 'Open menu';
+const closeLabel = isUkrainian ? 'Закрити меню' : 'Close menu';
 
 if (burger && menu) {
   burger.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('is-open');
     document.body.classList.toggle('menu-open', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+    burger.setAttribute('aria-label', isOpen ? closeLabel : openLabel);
   });
 
   menu.querySelectorAll('a').forEach((link) => {
@@ -16,6 +19,7 @@ if (burger && menu) {
       menu.classList.remove('is-open');
       document.body.classList.remove('menu-open');
       burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', openLabel);
     });
   });
 }

@@ -3,228 +3,283 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zero Secret Server Authentication — Bachelor Thesis Landing</title>
+  <title>Zero Secret Server Authentication — Лендінг бакалаврської роботи</title>
   <meta name="description" content="Лендінг бакалаврської роботи про методологію та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication.">
-  <meta name="keywords" content="Zero Secret Server Authentication, authentication, cybersecurity, bachelor thesis, автентифікація, кібербезпека">
+  <meta name="keywords" content="Zero Secret Server Authentication, автентифікація, кібербезпека, client-side encryption, stateless authentication, bachelor thesis">
   <meta name="author" content="Yelyzaveta Kim">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0f172a">
 
   <link rel="canonical" href="https://elaizav.github.io/zero-secret-auth-landing/">
-  <meta property="og:title" content="Zero Secret Server Authentication — Bachelor Thesis Landing">
-  <meta property="og:description" content="Лендінг бакалаврської роботи про методологію та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication.">
+  <link rel="alternate" hreflang="uk" href="https://elaizav.github.io/zero-secret-auth-landing/">
+  <link rel="alternate" hreflang="en" href="https://elaizav.github.io/zero-secret-auth-landing/en/">
+  <link rel="alternate" hreflang="x-default" href="https://elaizav.github.io/zero-secret-auth-landing/">
+
+  <meta property="og:title" content="Zero Secret Server Authentication — Лендінг бакалаврської роботи">
+  <meta property="og:description" content="Дослідження методології та інструментальних засобів розробки систем автентифікації без збереження секретів користувача на сервері.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elaizav.github.io/zero-secret-auth-landing/">
   <meta property="og:locale" content="uk_UA">
   <meta property="og:site_name" content="Zero Secret Auth Landing">
   <meta property="og:image" content="https://elaizav.github.io/zero-secret-auth-landing/apple-touch-icon.png">
-  
+
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
   <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Методологія та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication",
+    "author": {
+      "@type": "Person",
+      "name": "Yelyzaveta Kim"
+    },
+    "inLanguage": "uk",
+    "url": "https://elaizav.github.io/zero-secret-auth-landing/",
+    "about": [
+      "Zero Secret Server Authentication",
+      "Cybersecurity",
+      "Authentication Systems"
+    ],
+    "description": "Дослідження підходів до розробки систем автентифікації, у яких секрети користувача не зберігаються на сервері."
+  }
   </script>
 </head>
 <body>
-  <body>
   <a class="skip-link" href="#main-content">Перейти до основного вмісту</a>
 
-  <header class="site-header" role="banner">
-    <div class="container">
-      <h1 id="page-title">
-  Методологія та інструментальні засоби розробки систем автентифікації
-  за моделлю Zero Secret Server Authentication
-</h1>
-<p class="subtitle" id="page-summary">
-  Methodology and Instrumental Tools for Developing Authentication Systems
-  Based on the Zero Secret Server Authentication Model
-</p>
-<p class="short-description">
-  Бакалаврська робота присвячена дослідженню підходів до створення систем
-  автентифікації, у яких секрети користувача не зберігаються на сервері,
-  а критичні механізми захисту реалізуються на клієнтській стороні.
-</p>
-<p class="keywords">
-  <strong>Ключові слова:</strong> Zero Secret Server Authentication,
-  системи автентифікації, кібербезпека, клієнтське шифрування,
-  stateless authentication.
-</p>
+  <header class="header" id="top">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="Zero Secret Auth Landing home">
+        <img src="favicon.svg" alt="" width="24" height="24">
+        <span>Zero Secret Auth</span>
+      </a>
 
-      <nav class="site-nav" aria-label="Основна навігація">
-        <ul>
-          <li><a href="#overview">Огляд</a></li>
-          <li><a href="#research">Дослідження</a></li>
-          <li><a href="#methodology">Методологія</a></li>
-          <li><a href="#results">Результати</a></li>
-          <li><a href="#contacts">Контакти</a></li>
-        </ul>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="site-menu" aria-label="Основна навігація">
+        <a class="nav-link" href="#overview">Огляд</a>
+        <a class="nav-link" href="#research">Дослідження</a>
+        <a class="nav-link" href="#methodology">Методологія</a>
+        <a class="nav-link" href="#results">Результати</a>
+        <a class="nav-link" href="#contacts">Контакти</a>
+        <div class="lang-switch" aria-label="Вибір мови">
+          <a class="lang-switch__link is-active" href="./">UA</a>
+          <a class="lang-switch__link" href="en/">EN</a>
+        </div>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="site-main">
-  <section id="overview" class="hero" aria-labelledby="hero-title" aria-describedby="page-summary">
-    <div class="container">
-      <figure class="hero-media">
-        <img
-          src="apple-touch-icon.png"
-          alt="Іконка проєкту Zero Secret Server Authentication у вигляді стилізованого замка"
-          width="180"
-          height="180"
-        >
-        <figcaption class="visually-hidden">
-          Графічний символ, що представляє безпечну автентифікацію.
-        </figcaption>
-      </figure>
+  <main id="main-content">
+    <section class="hero" id="overview" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Бакалаврська робота · Cybersecurity Research Landing</p>
+          <h1 id="hero-title">Методологія та інструментальні засоби розробки систем автентифікації за моделлю <span>Zero Secret Server Authentication</span></h1>
+          <p class="hero__subtitle">Methodology and Instrumental Tools for Developing Authentication Systems Based on the Zero Secret Server Authentication Model</p>
+          <p class="hero__text">Робота присвячена дослідженню архітектурних підходів, інструментів і практик створення систем автентифікації, у яких критичні секрети не зберігаються на сервері, а захисна логіка зміщується ближче до клієнтської сторони.</p>
 
-      <div class="hero-copy">
-        <h2 id="hero-title">Головний опис роботи</h2>
-        <p>
-          Цей лендінг презентує бакалаврську роботу, присвячену дослідженню
-          методології та інструментальних засобів розробки систем автентифікації
-          за моделлю Zero Secret Server Authentication.
-        </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://github.com/elaizav/zero-secret-auth-landing">Переглянути репозиторій</a>
+            <a class="btn btn--secondary" href="#contacts">Зв'язатися</a>
+          </div>
+
+          <ul class="hero__chips" aria-label="Ключові слова">
+            <li>Zero Secret Server Authentication</li>
+            <li>Кібербезпека</li>
+            <li>Client-side Encryption</li>
+            <li>Stateless Authentication</li>
+          </ul>
+        </div>
+
+        <aside class="hero__panel" aria-label="Короткий огляд проєкту">
+          <div class="hero-card hero-card--media">
+            <img src="apple-touch-icon.png" alt="Логотип дослідження Zero Secret Server Authentication" width="180" height="180">
+            <p>Безпечна модель автентифікації, орієнтована на зменшення ризику витоку серверних секретів.</p>
+          </div>
+          <div class="hero-card hero-card--stats">
+            <h2>Фокус дослідження</h2>
+            <dl>
+              <div>
+                <dt>Архітектура</dt>
+                <dd>Безсерверне зберігання секретів</dd>
+              </div>
+              <div>
+                <dt>Напрям</dt>
+                <dd>Безпечна вебавтентифікація</dd>
+              </div>
+              <div>
+                <dt>Результат</dt>
+                <dd>Основа для демонстраційного прототипу</dd>
+              </div>
+            </dl>
+          </div>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="research" aria-labelledby="relevance-title">
-    <div class="container">
-      <h2 id="relevance-title">Актуальність теми</h2>
-      <p>
-        Сучасні інформаційні системи вимагають високого рівня захисту
-        автентифікаційних даних користувачів. Традиційні підходи передбачають
-        зберігання секретів або похідних від них на сервері, що створює
-        додаткові ризики компрометації. Модель Zero Secret Server Authentication
-        є актуальною, оскільки спрямована на зменшення ризиків витоку даних,
-        підвищення стійкості системи до атак та вдосконалення архітектури
-        безпечної автентифікації.
-      </p>
-    </div>
-  </section>
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">01 · Дослідження</p>
+          <h2 id="research-title">Актуальність і предмет дослідження</h2>
+        </div>
 
-  <section id="goals" aria-labelledby="goals-title">
-    <div class="container">
-      <h2 id="goals-title">Мета та завдання дослідження</h2>
+        <div class="grid grid--2">
+          <article class="card">
+            <h3>Чому це важливо</h3>
+            <p>Традиційні системи часто зберігають секрети користувача або похідні від них на сервері. Це створює додаткову поверхню атаки, ускладнює захист даних та підвищує ризик компрометації під час витоку баз або помилок конфігурації.</p>
+          </article>
+          <article class="card">
+            <h3>Що досліджується</h3>
+            <p>У роботі аналізуються підходи до побудови автентифікації, де основна довіра зміщується з сервера на криптографічні механізми на клієнті, а сервер виконує роль координації без постійного зберігання секретної інформації.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <article aria-labelledby="goal-title">
-        <h3 id="goal-title">Мета дослідження</h3>
-        <p>
-          Дослідити методологічні підходи та інструментальні засоби розробки
-          систем автентифікації за моделлю Zero Secret Server Authentication
-          і підготувати основу для створення демонстраційного прототипу.
-        </p>
-      </article>
+    <section class="section section--muted" id="goals" aria-labelledby="goals-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">02 · Мета і завдання</p>
+          <h2 id="goals-title">Що саме виконує дослідження</h2>
+        </div>
 
-      <article aria-labelledby="tasks-title">
-        <h3 id="tasks-title">Основні завдання</h3>
-        <ol>
-          <li>Проаналізувати існуючі підходи до реалізації систем автентифікації.</li>
-          <li>Дослідити принципи моделі Zero Secret Server Authentication.</li>
-          <li>Визначити інструментальні засоби для реалізації безпечного вебрішення.</li>
-          <li>Сформувати архітектурний підхід до побудови системи автентифікації.</li>
-          <li>Підготувати основу для подальшої реалізації демонстраційного прототипу.</li>
+        <div class="goal-card">
+          <h3>Мета дослідження</h3>
+          <p>Дослідити методологічні підходи та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication і підготувати основу для створення демонстраційного прототипу.</p>
+        </div>
+
+        <ol class="task-list">
+          <li class="task-card"><span>01</span><p>Проаналізувати існуючі підходи до реалізації систем автентифікації.</p></li>
+          <li class="task-card"><span>02</span><p>Дослідити принципи моделі Zero Secret Server Authentication.</p></li>
+          <li class="task-card"><span>03</span><p>Визначити інструментальні засоби для реалізації безпечного вебрішення.</p></li>
+          <li class="task-card"><span>04</span><p>Сформувати архітектурний підхід до побудови системи автентифікації.</p></li>
+          <li class="task-card"><span>05</span><p>Підготувати основу для подальшої реалізації демонстраційного прототипу.</p></li>
         </ol>
-      </article>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section id="methodology" aria-labelledby="methodology-title">
-    <div class="container">
-      <h2 id="methodology-title">Методологія дослідження</h2>
-      <p>
-        У роботі використовується підхід, що поєднує аналіз сучасних моделей
-        автентифікації, принципи безпечної веброзробки, клієнтське шифрування,
-        stateless-підхід до обробки автентифікаційних даних та порівняльний
-        аналіз інструментальних засобів реалізації вебсистем.
-      </p>
+    <section class="section" id="methodology" aria-labelledby="methodology-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">03 · Методологія</p>
+          <h2 id="methodology-title">Методи та інструментальні підходи</h2>
+        </div>
 
-      <article aria-labelledby="methods-title">
-        <h3 id="methods-title">Основні методи</h3>
-        <ul>
-          <li>аналіз наукових і технічних джерел;</li>
-          <li>порівняння архітектурних підходів;</li>
-          <li>моделювання структури вебсистеми;</li>
-          <li>проєктування інтерфейсу односторінкового лендінгу.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
+        <p class="section-intro">У роботі поєднуються аналіз сучасних моделей автентифікації, принципи безпечної веброзробки, клієнтське шифрування, stateless-підхід до обробки даних та порівняльний аналіз засобів реалізації вебсистем.</p>
 
-  <section id="contacts" aria-labelledby="contacts-title">
-  <div class="container">
-    <h2 id="contacts-title">Контакти та посилання на повний текст</h2>
+        <div class="grid grid--4">
+          <article class="card feature-card">
+            <h3>Аналіз джерел</h3>
+            <p>Опрацювання наукових і технічних джерел для формування теоретичної бази дослідження.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Порівняння архітектур</h3>
+            <p>Оцінка сильних і слабких сторін класичних серверних та Zero Secret-підходів.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Моделювання структури</h3>
+            <p>Проєктування логічної структури вебсистеми та її ключових компонентів.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>UI-проєктування</h3>
+            <p>Створення односторінкового лендінгу для представлення результатів і концепції дослідження.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <article aria-labelledby="author-title">
-      <h3 id="author-title">Контактна інформація</h3>
-      <p><strong>Автор:</strong> Yelyzaveta Kim</p>
-      <p>
-        <strong>GitHub профіль:</strong>
-        <a href="https://github.com/elaizav">https://github.com/elaizav</a>
-      </p>
-      <p>
-        <strong>Репозиторій лендінгу:</strong>
-        <a href="https://github.com/elaizav/zero-secret-auth-landing">
-          https://github.com/elaizav/zero-secret-auth-landing
-        </a>
-      </p>
-    </article>
+    <section class="section section--muted" id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">04 · Результати</p>
+          <h2 id="results-title">Очікувані результати роботи</h2>
+        </div>
 
-    <article aria-labelledby="fulltext-title">
-      <h3 id="fulltext-title">Повний текст роботи</h3>
-      <p>
-        На поточному етапі доступна вебпрезентація проєкту та репозиторій лендінгу.
-        Посилання на повний текст бакалаврської роботи буде додано після завершення
-        підготовки остаточної версії документа.
-      </p>
-      <p>
-        <a href="https://github.com/elaizav/zero-secret-auth-landing">
-          Переглянути поточну версію матеріалів
-        </a>
-      </p>
-    </article>
-  </div>
-</section>
+        <div class="grid grid--2">
+          <article class="card result-card">
+            <h3>Архітектурне обґрунтування</h3>
+            <p>Формалізований підхід до побудови систем автентифікації без збереження секретів користувача на сервері.</p>
+          </article>
+          <article class="card result-card">
+            <h3>Набір інструментів</h3>
+            <p>Обґрунтований перелік технологій і практик для реалізації безпечного вебрішення.</p>
+          </article>
+          <article class="card result-card">
+            <h3>Концепція прототипу</h3>
+            <p>Підготовлена основа для створення демонстраційного прототипу системи автентифікації.</p>
+          </article>
+          <article class="card result-card">
+            <h3>Презентаційний лендінг</h3>
+            <p>Оновлений адаптивний лендінг із чіткою структурою, кращою візуальною подачею та англомовною версією.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="visuals" aria-labelledby="visuals-title">
-  <div class="container">
-    <h2 id="visuals-title">Ілюстративні матеріали</h2>
+    <section class="section" id="visuals" aria-labelledby="visuals-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">05 · Візуальні матеріали</p>
+          <h2 id="visuals-title">Графічне представлення проєкту</h2>
+        </div>
 
-    <figure>
-      <img
-        src="apple-touch-icon.png"
-        alt="Символічне графічне представлення безпечної автентифікації"
-        width="180"
-        height="180"
-        loading="lazy"
-        decoding="async"
-      >
-      <figcaption>
-        Візуальний символ проєкту, що підкреслює ідею захищеної автентифікації.
-      </figcaption>
-    </figure>
+        <div class="visuals">
+          <figure class="card visual-card">
+            <img src="apple-touch-icon.png" alt="Символічне графічне представлення безпечної автентифікації" width="180" height="180" loading="lazy" decoding="async">
+            <figcaption>Основний візуальний символ проєкту, що підкреслює ідею безпечної автентифікації без серверного зберігання секретів.</figcaption>
+          </figure>
+          <figure class="card visual-card">
+            <img src="favicon.svg" alt="Додатковий графічний знак дослідження Zero Secret Server Authentication" width="96" height="96" loading="lazy" decoding="async">
+            <figcaption>Компактний знак для favicon, навігації та ідентичності лендінгу.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-    <figure>
-      <img
-        src="favicon.svg"
-        alt="Графічний знак дослідження Zero Secret Server Authentication"
-        width="96"
-        height="96"
-        loading="lazy"
-        decoding="async"
-      >
-      <figcaption>
-        Додатковий візуальний елемент для представлення тематики дослідження.
-      </figcaption>
-    </figure>
-  </div>
-</section>
-</main>
+    <section class="section section--muted" id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">06 · Контакти</p>
+          <h2 id="contacts-title">Контактна інформація та матеріали</h2>
+        </div>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
+        <div class="grid grid--2">
+          <article class="card contact-card">
+            <h3>Автор роботи</h3>
+            <p><strong>Yelyzaveta Kim</strong></p>
+            <p><a href="https://github.com/elaizav">GitHub профіль</a></p>
+            <p><a href="https://github.com/elaizav/zero-secret-auth-landing">Репозиторій лендінгу</a></p>
+          </article>
+          <article class="card contact-card">
+            <h3>Повний текст</h3>
+            <p>Наразі доступна вебпрезентація проєкту та репозиторій лендінгу. Посилання на повний текст бакалаврської роботи можна додати окремою кнопкою після завершення підготовки фінальної версії документа.</p>
+            <p><a href="https://github.com/elaizav/zero-secret-auth-landing">Переглянути поточні матеріали</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
       <p>© 2026 Bachelor Thesis Project</p>
+      <a href="#top">Повернутися вгору</a>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
+</html>

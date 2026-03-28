@@ -6,7 +6,7 @@
   <title>Методологія та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication</title>
   <meta name="description" content="Бакалаврський лендінг про методологію та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication.">
   <meta name="keywords" content="Zero Secret Server Authentication, автентифікація, кібербезпека, client-side encryption, stateless authentication, бакалаврська робота">
-  <meta name="author" content="Yelyzaveta Kim">
+  <meta name="author" content="Elizaveta Kim">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0f172a">
   <link rel="canonical" href="https://elaizav.github.io/zero-secret-auth-landing/">
@@ -14,7 +14,7 @@
   <link rel="alternate" hreflang="en" href="https://elaizav.github.io/zero-secret-auth-landing/en/">
   <link rel="alternate" hreflang="x-default" href="https://elaizav.github.io/zero-secret-auth-landing/">
   <meta property="og:title" content="Zero Secret Server Authentication — бакалаврський лендінг дослідження">
-  <meta property="og:description" content="Односторінкова академічна презентація теми, методології, очікуваних результатів і публічних матеріалів дослідження Zero Secret Server Authentication.">
+  <meta property="og:description" content="Односторінкова академічна презентація теми, методології, очікуваних результатів і матеріалів дослідження Zero Secret Server Authentication.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elaizav.github.io/zero-secret-auth-landing/">
   <meta property="og:locale" content="uk_UA">
@@ -22,7 +22,7 @@
   <meta property="og:image" content="https://elaizav.github.io/zero-secret-auth-landing/apple-touch-icon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zero Secret Server Authentication — бакалаврський лендінг дослідження">
-  <meta name="twitter:description" content="Публічна сторінка бакалаврської роботи з чесним описом теми, задач, методології та матеріалів проєкту.">
+  <meta name="twitter:description" content="Публічна сторінка бакалаврської роботи з описом теми, завдань, методології та матеріалів дослідження.">
   <meta name="twitter:image" content="https://elaizav.github.io/zero-secret-auth-landing/apple-touch-icon.png">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -39,7 +39,7 @@
     "alternativeHeadline": "Methodology and Instrumental Tools for Developing Authentication Systems Based on the Zero Secret Server Authentication Model",
     "author": {
       "@type": "Person",
-      "name": "Yelyzaveta Kim"
+      "name": "Elizaveta Kim"
     },
     "inLanguage": ["uk", "en"],
     "mainEntityOfPage": "https://elaizav.github.io/zero-secret-auth-landing/",
@@ -54,7 +54,7 @@
     "description": "Бакалаврське дослідження архітектурних і технологічних підходів до систем автентифікації, у яких секрети користувача не зберігаються на сервері.",
     "hasPart": {
       "@type": "WebPage",
-      "name": "Розгорнутий опис дослідження / повний текст публічних матеріалів проєкту",
+      "name": "Розгорнуті матеріали дослідження",
       "url": "https://elaizav.github.io/zero-secret-auth-landing/materials/"
     }
   }
@@ -95,7 +95,7 @@
           <p class="hero__subtitle">Methodology and Instrumental Tools for Developing Authentication Systems Based on the Zero Secret Server Authentication Model</p>
           <p class="hero__text">Дослідження присвячене підходам до побудови систем автентифікації, де сервер не зберігає секрети користувача, а безпеково критичні операції спираються на криптографічні механізми на стороні клієнта.</p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="materials/">Розгорнуті матеріали</a>
+            <a class="btn btn--primary" href="materials/">Матеріали дослідження</a>
             <a class="btn btn--secondary" href="https://github.com/elaizav/zero-secret-auth-landing">Репозиторій</a>
           </div>
           <ul class="hero__chips" aria-label="Ключові слова">
@@ -107,15 +107,15 @@
         </div>
         <aside class="hero__panel" aria-label="Короткий огляд проєкту">
           <div class="hero-card hero-card--media">
-            <img src="assets/zero-secret-architecture.svg" alt="Схема потоку автентифікації без збереження секрету користувача на сервері" width="640" height="420">
-            <p>Схема ілюструє логіку, за якої сервер оперує перевірочними артефактами та сесією, але не зберігає секрет користувача в явному вигляді.</p>
+            <img src="assets/zero-secret-architecture.png" alt="Діаграма архітектури автентифікації за моделлю Zero Secret Server Authentication" width="2765" height="3365" loading="eager" decoding="async">
+            <p>Схема відображає основні компоненти й зв'язки в моделі Zero Secret Server Authentication.</p>
           </div>
           <div class="hero-card hero-card--stats">
             <h2>Паспорт дослідження</h2>
             <dl>
               <div>
                 <dt>Короткий опис</dt>
-                <dd>Академічний лендінг і публічні матеріали бакалаврського проєкту.</dd>
+                <dd>Академічний лендінг і матеріали бакалаврського дослідження.</dd>
               </div>
               <div>
                 <dt>Мета</dt>
@@ -123,7 +123,7 @@
               </div>
               <div>
                 <dt>Статус</dt>
-                <dd>Публічні матеріали проєкту, а не підтверджена фінальна захищена робота.</dd>
+                <dd>Публічна презентація теми та структури дослідження.</dd>
               </div>
             </dl>
           </div>
@@ -171,11 +171,8 @@
             <p>Узгоджена методологія проєктування, перелік інструментів для реалізації, опис архітектури без збереження секретів на сервері та сформована база для демонстраційного прототипу.</p>
           </article>
           <article class="card note-card">
-            <h3>Інституційний контекст</h3>
-            <div class="identity-block">
-              <img src="assets/university-placeholder.svg" alt="Нейтральний плейсхолдер логотипа закладу вищої освіти" width="120" height="120" loading="lazy" decoding="async">
-              <p>Офіційний логотип закладу освіти не використовується, оскільки в публічному репозиторії не верифіковано конкретну установу. Для виконання вимоги лабораторної додано чітко підписаний нейтральний плейсхолдер.</p>
-            </div>
+            <h3>Академічний контекст</h3>
+            <p>Бакалаврська робота, Сумський державний університет.</p>
           </article>
         </div>
       </div>
@@ -210,18 +207,18 @@
     <section class="section section--muted" id="materials" aria-labelledby="materials-title">
       <div class="container">
         <div class="section-heading">
-          <p class="section-kicker">04 · Публічні матеріали</p>
-          <h2 id="materials-title">Чесне посилання на повний текст публічних матеріалів проєкту</h2>
+          <p class="section-kicker">04 · Матеріали дослідження</p>
+          <h2 id="materials-title">Повний опис дослідження та супровідні матеріали</h2>
         </div>
         <div class="grid grid--2">
           <article class="card">
-            <h3>Що доступно публічно</h3>
-            <p>У репозиторії опубліковано розгорнутий опис дослідження з темою, метою, завданнями, методологією, очікуваними результатами та поясненням архітектурної ідеї. Ця сторінка не заявляється як офіційний фінальний текст захищеної бакалаврської роботи.</p>
-            <p><a class="text-link" href="materials/">Відкрити розгорнутий опис дослідження</a></p>
+            <h3>Матеріали дослідження</h3>
+            <p>У репозиторії доступний розгорнутий опис дослідження з темою, метою, завданнями, методологією, очікуваними результатами та архітектурною схемою.</p>
+            <p><a class="text-link" href="materials/">Відкрити повний опис дослідження</a></p>
           </article>
           <article class="card">
             <h3>Що ще містить репозиторій</h3>
-            <p>Окремо доступні вихідні файли статичного лендінгу, git-історія з тегами етапів та супровідний README з поясненням використаної Trunk-Based Development стратегії.</p>
+            <p>Також доступні вихідні файли статичного лендінгу, git-історія з тегами етапів і короткий README з описом Trunk-Based Development.</p>
             <p><a class="text-link" href="https://github.com/elaizav/zero-secret-auth-landing">Перейти до репозиторію GitHub</a></p>
           </article>
         </div>
@@ -236,7 +233,7 @@
         <div class="grid grid--2">
           <article class="card contact-card">
             <h3>Авторка</h3>
-            <p><strong>Yelyzaveta Kim</strong></p>
+            <p><strong>Elizaveta Kim</strong></p>
             <p>Публічний контакт: <a href="https://github.com/elaizav">github.com/elaizav</a></p>
             <p>Репозиторій проєкту: <a href="https://github.com/elaizav/zero-secret-auth-landing">zero-secret-auth-landing</a></p>
           </article>

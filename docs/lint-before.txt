@@ -1,0 +1,23 @@
+
+> zero-secret-auth-landing@1.1.1 lint:js
+> eslint .
+
+
+D:\Лиза\4 курс\repo\zero-secret-auth-landing\build.mjs
+  32:3  error  Unexpected console statement  no-console
+
+D:\Лиза\4 курс\repo\zero-secret-auth-landing\eslint.config.js
+  1:12  error  'require' is not defined  no-undef
+  2:17  error  'require' is not defined  no-undef
+  4:1   error  'module' is not defined   no-undef
+
+✖ 4 problems (4 errors, 0 warnings)
+
+
+> zero-secret-auth-landing@1.1.1 lint:css
+> stylelint "**/*.css"
+
+
+styles.css
+  × 68 problems (68 errors, 0 warnings)
+  57 errors potentially fixable with the "--fix" option.

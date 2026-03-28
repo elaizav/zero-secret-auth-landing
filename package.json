@@ -1,0 +1,49 @@
+{
+  "name": "zero-secret-auth-landing",
+  "version": "1.1.1",
+  "description": "Static academic landing page for the Zero Secret Server Authentication bachelor thesis project.",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint \"**/*.css\"",
+    "typecheck": "tsc --project tsconfig.json",
+    "check": "npm run lint && npm run typecheck",
+    "build": "npm run check && node build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elaizav/zero-secret-auth-landing.git"
+  },
+  "keywords": [
+    "linting",
+    "static-site",
+    "academic-landing"
+  ],
+  "author": "elaizav",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elaizav/zero-secret-auth-landing/issues"
+  },
+  "homepage": "https://elaizav.github.io/zero-secret-auth-landing/",
+  "lint-staged": {
+    "*.{js,mjs}": [
+      "eslint"
+    ],
+    "*.css": [
+      "stylelint"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.5.0",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "stylelint": "^17.6.0",
+    "stylelint-config-standard": "^40.0.0",
+    "typescript": "^6.0.2"
+  }
+}

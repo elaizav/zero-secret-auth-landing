@@ -106,19 +106,35 @@ export function createNavigationTracker(navLinks) {
  *   entries: {
  *     href: string | null,
  *     element: { classList: { toggle: (className: string, force?: boolean) => void } }
- *   }[]
+ *   }[],
+ *   hrefToEntry: Map<string, {
+ *     href: string | null,
+ *     element: { classList: { toggle: (className: string, force?: boolean) => void } }
+ *   }>
  * }} tracker Navigation tracker created by `createNavigationTracker`.
  * @param {string} sectionId Section id currently considered active.
  * @returns {string} Anchor href that became active.
  */
 export function applyActiveSectionState(tracker, sectionId) {
   const activeHref = `#${sectionId}`;
+  const previousEntry = tracker.activeHref ? tracker.hrefToEntry.get(tracker.activeHref) : undefined;
+  const nextEntry = tracker.hrefToEntry.get(activeHref);
 
-  tracker.entries.forEach((entry) => {
-    entry.element.classList.toggle('is-active', matchesSectionLink(entry.href, sectionId));
-  });
+  if (previousEntry && previousEntry !== nextEntry) {
+    previousEntry.element.classList.toggle('is-active', false);
+  }
 
-  tracker.activeHref = activeHref;
+  if (nextEntry) {
+    nextEntry.element.classList.toggle('is-active', true);
+    tracker.activeHref = activeHref;
+    return activeHref;
+  }
+
+  if (previousEntry) {
+    previousEntry.element.classList.toggle('is-active', false);
+  }
+
+  tracker.activeHref = null;
   return activeHref;
 }
 

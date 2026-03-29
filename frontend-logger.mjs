@@ -75,6 +75,18 @@ export function createBrowserLogger(options) {
   });
   const sessionId = getOrCreateSessionId(options.sessionStorageRef);
   const language = getSupportedLanguage(options.languageCode);
+  const initialSerializedEntries = options.localStorageRef?.getItem(BROWSER_LOG_STORAGE_KEY);
+  /** @type {object[]} */
+  let cachedEntries = [];
+
+  if (initialSerializedEntries) {
+    try {
+      const parsedEntries = JSON.parse(initialSerializedEntries);
+      cachedEntries = Array.isArray(parsedEntries) ? parsedEntries : [];
+    } catch {
+      cachedEntries = [];
+    }
+  }
 
   /**
    * Returns the currently stored log entries.
@@ -82,17 +94,7 @@ export function createBrowserLogger(options) {
    * @returns {object[]} Stored browser entries.
    */
   function getEntries() {
-    const serialized = options.localStorageRef?.getItem(BROWSER_LOG_STORAGE_KEY);
-    if (!serialized) {
-      return [];
-    }
-
-    try {
-      const parsedEntries = JSON.parse(serialized);
-      return Array.isArray(parsedEntries) ? parsedEntries : [];
-    } catch {
-      return [];
-    }
+    return [...cachedEntries];
   }
 
   /**
@@ -102,8 +104,8 @@ export function createBrowserLogger(options) {
    * @returns {void}
    */
   function persistEntry(entry) {
-    const entries = [...getEntries(), entry].slice(-MAX_BROWSER_LOGS);
-    options.localStorageRef?.setItem(BROWSER_LOG_STORAGE_KEY, JSON.stringify(entries));
+    cachedEntries = [...cachedEntries, entry].slice(-MAX_BROWSER_LOGS);
+    options.localStorageRef?.setItem(BROWSER_LOG_STORAGE_KEY, JSON.stringify(cachedEntries));
   }
 
   /**

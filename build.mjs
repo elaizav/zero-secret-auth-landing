@@ -43,14 +43,14 @@ const entriesToCopy = [
  * @returns {Promise<void>} Resolves when all entries are copied.
  */
 export async function copyProjectEntries(entries, sourceRoot, outputRoot) {
-  for (const entry of entries) {
+  await Promise.all(entries.map(async (entry) => {
     logger.debug('Copying static entry', {
       details: { entry }
     });
     await cp(path.join(sourceRoot, entry), path.join(outputRoot, entry), {
       recursive: true
     });
-  }
+  }));
 }
 
 /**

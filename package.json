@@ -5,6 +5,9 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
+    "dev": "node server.mjs",
+    "serve": "node server.mjs --root=dist",
+    "logs:tail": "node logs-tail.mjs",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"**/*.css\"",
@@ -50,6 +53,8 @@
     "lint-staged": "^16.4.0",
     "stylelint": "^17.6.0",
     "stylelint-config-standard": "^40.0.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }

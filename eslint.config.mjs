@@ -35,7 +35,7 @@ export default [
   },
   js.configs.recommended,
   {
-    files: ['script.js'],
+    files: ['script.js', 'frontend-logger.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -49,7 +49,7 @@ export default [
     }
   },
   {
-    files: ['build.mjs', 'eslint.config.mjs', 'script-helpers.mjs', 'tests/**/*.mjs'],
+    files: ['build.mjs', 'eslint.config.mjs', 'logger.mjs', 'logs-tail.mjs', 'server.mjs', 'tests/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -63,7 +63,15 @@ export default [
     }
   },
   {
-    files: ['script.js', 'script-helpers.mjs', 'build.mjs'],
+    files: [
+      'build.mjs',
+      'error-messages.mjs',
+      'frontend-logger.mjs',
+      'log-common.mjs',
+      'script.js',
+      'script-helpers.mjs',
+      'server.mjs'
+    ],
     ...documentationRuleSet
   }
 ];

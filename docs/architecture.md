@@ -2,28 +2,46 @@
 
 ## Overview
 
-The repository is a static front-end project for an academic landing page. It intentionally avoids framework tooling and keeps the runtime simple:
+This repository is a static front-end project for an academic landing page and a small set of supporting research materials. The production output is a collection of static files that can be hosted by GitHub Pages or any ordinary static web server.
 
-- HTML files define the page structure and content.
-- `styles.css` provides a shared responsive presentation layer.
-- `script.js` adds shared interactive behavior.
-- `script-helpers.mjs` contains small reusable helper functions for navigation state and section tracking.
-- `build.mjs` creates a minimal deployable copy in `dist/`.
+## Main components
 
-## Architectural decisions
+- Source pages: `index.html`, `en/index.html`, `materials/index.html`
+- Shared presentation: `styles.css`
+- Shared browser logic: `script.js`
+- Pure helper logic: `script-helpers.mjs`
+- Static assets: `assets/`, `favicon.svg`, `apple-touch-icon.png`, `site.webmanifest`
+- Development and build tooling: `package.json`, `eslint.config.mjs`, `tsconfig.json`, `jsdoc.config.json`, `build.mjs`
+- Generated outputs: `dist/`, `reference/`, `artifacts/jsdoc-reference.zip`
+- Hosting target: GitHub Pages or another static file server
 
-### Static first
+## Components not present
 
-The project is designed for GitHub Pages, so the architecture avoids server-side logic and heavy build steps.
+- Web application server: not used
+- DBMS: not used
+- Runtime cache service: not used
+- Background worker or queue: not used
+- User data storage: not used
 
-### Shared runtime
+The only server-side requirement is a static file host that can return HTML, CSS, JavaScript, images, and generated documentation files.
 
-One browser script is reused by the Ukrainian page, the English page, and the materials page. This reduces drift between versions.
+## Architecture diagram
 
-### Testable helpers
+```mermaid
+flowchart LR
+  A[Source files\nHTML CSS JS assets docs] --> B[npm tooling\nlint typecheck docs tests]
+  B --> C[build.mjs]
+  C --> D[dist static output]
+  A --> E[Repository root static files]
+  D --> F[GitHub Pages or generic static hosting]
+  E --> F
+  F --> G[Browser client]
+  G --> H[Rendered landing pages\nand research materials]
+```
 
-The navigation logic includes a small helper module with pure functions. This keeps the browser behavior understandable, documentable, and testable without introducing a framework.
+## Delivery model
 
-### Separate generated documentation
-
-Generated JSDoc output lives in `reference/`, while explanatory project documentation stays in `docs/`.
+- During development, contributors work directly with source files in the repository root.
+- `npm run check` validates code quality, type safety, and documentation examples.
+- `npm run build` copies deployable static files into `dist/`.
+- Deployment is file-based: either the repository root is published via GitHub Pages, or the `dist/` directory is copied to a static host.

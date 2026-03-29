@@ -49,7 +49,7 @@ export default [
     }
   },
   {
-    files: ['build.mjs', 'eslint.config.mjs', 'logger.mjs', 'logs-tail.mjs', 'server.mjs', 'tests/**/*.mjs'],
+    files: ['benchmarks/**/*.mjs', 'build.mjs', 'eslint.config.mjs', 'logger.mjs', 'logs-tail.mjs', 'server.mjs', 'tests/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',

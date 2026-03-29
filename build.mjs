@@ -32,6 +32,28 @@ const entriesToCopy = [
 ];
 
 /**
+ * Copies a list of project entries into the target output directory.
+ *
+ * The baseline implementation copies entries sequentially to keep the
+ * benchmarked behavior explicit before optimization.
+ *
+ * @param {string[]} entries Relative entry paths.
+ * @param {string} sourceRoot Absolute source root directory.
+ * @param {string} outputRoot Absolute output root directory.
+ * @returns {Promise<void>} Resolves when all entries are copied.
+ */
+export async function copyProjectEntries(entries, sourceRoot, outputRoot) {
+  for (const entry of entries) {
+    logger.debug('Copying static entry', {
+      details: { entry }
+    });
+    await cp(path.join(sourceRoot, entry), path.join(outputRoot, entry), {
+      recursive: true
+    });
+  }
+}
+
+/**
  * Copies one project entry into the static build directory.
  *
  * @param {string} entry Relative path to a file or folder that belongs in `dist/`.
@@ -41,9 +63,6 @@ const entriesToCopy = [
  * await copyStaticEntry('index.html');
  */
 export async function copyStaticEntry(entry) {
-  logger.debug('Copying static entry', {
-    details: { entry }
-  });
   await cp(path.join(rootDir, entry), path.join(distDir, entry), {
     recursive: true
   });
@@ -63,10 +82,7 @@ export async function buildSite() {
   });
   await rm(distDir, { recursive: true, force: true });
   await mkdir(distDir, { recursive: true });
-
-  for (const entry of entriesToCopy) {
-    await copyStaticEntry(entry);
-  }
+  await copyProjectEntries(entriesToCopy, rootDir, distDir);
 
   logger.info('Static build completed', {
     details: { distDir }

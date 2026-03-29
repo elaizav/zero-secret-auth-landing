@@ -21,6 +21,7 @@
     "server.mjs",
     "logs-tail.mjs",
     "build.mjs",
+    "benchmarks/**/*.mjs",
     "tests/**/*.mjs"
   ]
 }

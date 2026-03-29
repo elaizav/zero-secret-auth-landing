@@ -1,7 +1,8 @@
 import {
+  applyActiveSectionState,
   createMenuState,
-  getSectionObserverOptions,
-  matchesSectionLink
+  createNavigationTracker,
+  getSectionObserverOptions
 } from './script-helpers.mjs';
 import { createBrowserLogger, installGlobalErrorHandlers, showFatalErrorBanner } from './frontend-logger.mjs';
 
@@ -37,6 +38,7 @@ export function initializeNavigationEnhancements(options = {}) {
   const navLinks = [...documentRef.querySelectorAll('.nav-link')];
   const sectionTargets = [...documentRef.querySelectorAll('main section[id]')];
   const languageCode = documentRef.documentElement.lang;
+  const navigationTracker = createNavigationTracker(navLinks);
 
   logger.info('Navigation enhancement initialization started', {
     navLinkCount: navLinks.length,
@@ -95,10 +97,7 @@ export function initializeNavigationEnhancements(options = {}) {
           return;
         }
 
-        navLinks.forEach((link) => {
-          const href = link.getAttribute('href');
-          link.classList.toggle('is-active', matchesSectionLink(href, entry.target.id));
-        });
+        applyActiveSectionState(navigationTracker, entry.target.id);
 
         logger.debug('Active section changed', {
           sectionId: entry.target.id

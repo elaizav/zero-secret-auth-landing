@@ -16,6 +16,10 @@
     "docs:test": "node --test tests/*.test.mjs",
     "docs:check": "npm run docs:test",
     "docs:archive": "npm run docs:generate && powershell -NoProfile -Command \"New-Item -ItemType Directory -Force artifacts | Out-Null; if (Test-Path 'artifacts/jsdoc-reference.zip') { Remove-Item 'artifacts/jsdoc-reference.zip' -Force }; Compress-Archive -Path 'reference/*' -DestinationPath 'artifacts/jsdoc-reference.zip' -Force\"",
+    "perf:baseline": "node benchmarks/run-benchmarks.mjs baseline",
+    "perf:optimized": "node benchmarks/run-benchmarks.mjs optimized",
+    "perf:report": "node benchmarks/generate-report.mjs",
+    "perf": "npm run perf:optimized && npm run perf:report",
     "check": "npm run lint && npm run typecheck && npm run docs:check",
     "build": "npm run check && node build.mjs"
   },

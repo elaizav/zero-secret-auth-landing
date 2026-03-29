@@ -62,6 +62,67 @@ export function matchesSectionLink(linkHref, sectionId) {
 }
 
 /**
+ * Creates a reusable navigation tracker for active-section highlighting.
+ *
+ * @param {{ getAttribute: (name: string) => string | null, classList: { toggle: (className: string, force?: boolean) => void } }[]} navLinks Navigation link elements.
+ * @returns {{
+ *   activeHref: string | null,
+ *   entries: {
+ *     href: string | null,
+ *     element: { classList: { toggle: (className: string, force?: boolean) => void } }
+ *   }[],
+ *   hrefToEntry: Map<string, {
+ *     href: string | null,
+ *     element: { classList: { toggle: (className: string, force?: boolean) => void } }
+ *   }>
+ * }} Tracker object reused by the browser script and benchmarks.
+ */
+export function createNavigationTracker(navLinks) {
+  const entries = navLinks.map((link) => ({
+    href: link.getAttribute('href'),
+    element: link
+  }));
+
+  return {
+    activeHref: null,
+    entries,
+    hrefToEntry: new Map(
+      entries
+        .filter((entry) => typeof entry.href === 'string')
+        .map((entry) => [/** @type {string} */ (entry.href), entry])
+    )
+  };
+}
+
+/**
+ * Applies active navigation state for the currently visible section.
+ *
+ * The baseline implementation scans all navigation entries and toggles
+ * each item individually so that later optimizations can be measured
+ * against the same public interface.
+ *
+ * @param {{
+ *   activeHref: string | null,
+ *   entries: {
+ *     href: string | null,
+ *     element: { classList: { toggle: (className: string, force?: boolean) => void } }
+ *   }[]
+ * }} tracker Navigation tracker created by `createNavigationTracker`.
+ * @param {string} sectionId Section id currently considered active.
+ * @returns {string} Anchor href that became active.
+ */
+export function applyActiveSectionState(tracker, sectionId) {
+  const activeHref = `#${sectionId}`;
+
+  tracker.entries.forEach((entry) => {
+    entry.element.classList.toggle('is-active', matchesSectionLink(entry.href, sectionId));
+  });
+
+  tracker.activeHref = activeHref;
+  return activeHref;
+}
+
+/**
  * Returns stable observer settings for active-section tracking.
  *
  * @returns {{ threshold: number, rootMargin: string }} Shared observer settings.

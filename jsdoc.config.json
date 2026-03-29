@@ -1,0 +1,17 @@
+{
+  "source": {
+    "include": ["script.js", "script-helpers.mjs", "build.mjs"],
+    "includePattern": ".+\\.(js|mjs)$"
+  },
+  "opts": {
+    "destination": "reference",
+    "encoding": "utf8",
+    "recurse": false
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "default": {
+      "includeDate": false
+    }
+  }
+}

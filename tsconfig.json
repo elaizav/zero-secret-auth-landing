@@ -11,5 +11,5 @@
     "types": ["node"],
     "skipLibCheck": true
   },
-  "include": ["script.js", "build.mjs"]
+  "include": ["script.js", "script-helpers.mjs", "build.mjs", "tests/**/*.mjs"]
 }

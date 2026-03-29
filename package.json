@@ -9,7 +9,11 @@
     "lint:js": "eslint .",
     "lint:css": "stylelint \"**/*.css\"",
     "typecheck": "tsc --project tsconfig.json",
-    "check": "npm run lint && npm run typecheck",
+    "docs:generate": "jsdoc -c jsdoc.config.json",
+    "docs:test": "node --test tests/*.test.mjs",
+    "docs:check": "npm run docs:test",
+    "docs:archive": "npm run docs:generate && powershell -NoProfile -Command \"New-Item -ItemType Directory -Force artifacts | Out-Null; if (Test-Path 'artifacts/jsdoc-reference.zip') { Remove-Item 'artifacts/jsdoc-reference.zip' -Force }; Compress-Archive -Path 'reference/*' -DestinationPath 'artifacts/jsdoc-reference.zip' -Force\"",
+    "check": "npm run lint && npm run typecheck && npm run docs:check",
     "build": "npm run check && node build.mjs"
   },
   "repository": {
@@ -39,8 +43,10 @@
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.5.0",
     "eslint": "^10.1.0",
+    "eslint-plugin-jsdoc": "^62.8.1",
     "globals": "^17.4.0",
     "husky": "^9.1.7",
+    "jsdoc": "^4.0.5",
     "lint-staged": "^16.4.0",
     "stylelint": "^17.6.0",
     "stylelint-config-standard": "^40.0.0",

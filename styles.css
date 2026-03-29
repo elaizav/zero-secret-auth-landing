@@ -606,3 +606,38 @@ h1 span { color: var(--accent-strong); }
     animation: none !important;
   }
 }
+
+.fatal-banner {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: 16px 0;
+  background: rgb(127 29 29 / 0.96);
+  border-bottom: 1px solid rgb(248 113 113 / 0.35);
+  box-shadow: 0 10px 25px rgb(15 23 42 / 0.2);
+}
+
+.fatal-banner__content {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.fatal-banner__eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(254 202 202);
+}
+
+.fatal-banner h2,
+.fatal-banner p {
+  color: rgb(255 241 242);
+}
+
+.fatal-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}

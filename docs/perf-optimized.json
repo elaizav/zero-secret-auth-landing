@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-03-29T22:31:06.489Z",
+  "mode": "optimized",
+  "commitHash": "44fe138",
+  "methodology": {
+    "timingSource": "node:perf_hooks performance.now()",
+    "memoryIndicator": "process.memoryUsage().heapUsed delta",
+    "dbProfiling": "Not applicable because the project is a static site without a DBMS."
+  },
+  "scenarios": [
+    {
+      "scenario": "navigation-active-section",
+      "dataset": "small",
+      "iterationCount": 12,
+      "meanMs": 0.006,
+      "minMs": 0.0052,
+      "maxMs": 0.0113,
+      "meanHeapDeltaKb": 2.7526
+    },
+    {
+      "scenario": "browser-logger-persistence",
+      "dataset": "small",
+      "iterationCount": 12,
+      "meanMs": 5.5004,
+      "minMs": 4.4132,
+      "maxMs": 7.4896,
+      "meanHeapDeltaKb": 277.222
+    },
+    {
+      "scenario": "build-copy-entries",
+      "dataset": "small",
+      "iterationCount": 12,
+      "meanMs": 23.7532,
+      "minMs": 20.1354,
+      "maxMs": 29.7609,
+      "meanHeapDeltaKb": -35.3965
+    },
+    {
+      "scenario": "navigation-active-section",
+      "dataset": "medium",
+      "iterationCount": 8,
+      "meanMs": 0.0455,
+      "minMs": 0.0354,
+      "maxMs": 0.1099,
+      "meanHeapDeltaKb": 13.2715
+    },
+    {
+      "scenario": "browser-logger-persistence",
+      "dataset": "medium",
+      "iterationCount": 8,
+      "meanMs": 35.9394,
+      "minMs": 30.3583,
+      "maxMs": 40.3968,
+      "meanHeapDeltaKb": 175.5674
+    },
+    {
+      "scenario": "build-copy-entries",
+      "dataset": "medium",
+      "iterationCount": 8,
+      "meanMs": 110.248,
+      "minMs": 95.2495,
+      "maxMs": 133.7306,
+      "meanHeapDeltaKb": -2.666
+    },
+    {
+      "scenario": "navigation-active-section",
+      "dataset": "large",
+      "iterationCount": 5,
+      "meanMs": 0.2297,
+      "minMs": 0.1788,
+      "maxMs": 0.3041,
+      "meanHeapDeltaKb": 68.3484
+    },
+    {
+      "scenario": "browser-logger-persistence",
+      "dataset": "large",
+      "iterationCount": 5,
+      "meanMs": 133.4108,
+      "minMs": 125.1156,
+      "maxMs": 139.1721,
+      "meanHeapDeltaKb": -952.5297
+    },
+    {
+      "scenario": "build-copy-entries",
+      "dataset": "large",
+      "iterationCount": 5,
+      "meanMs": 305.6417,
+      "minMs": 280.2142,
+      "maxMs": 316.0912,
+      "meanHeapDeltaKb": 189.0016
+    }
+  ],
+  "realBuildMs": 10.4416,
+  "hotspots": [
+    {
+      "scenario": "build-copy-entries",
+      "dataset": "large",
+      "meanMs": 305.6417,
+      "whyItMatters": "Static build preparation should scale predictably with additional files."
+    },
+    {
+      "scenario": "browser-logger-persistence",
+      "dataset": "large",
+      "meanMs": 133.4108,
+      "whyItMatters": "Repeated logging should not dominate client-side interaction cost."
+    },
+    {
+      "scenario": "navigation-active-section",
+      "dataset": "large",
+      "meanMs": 0.2297,
+      "whyItMatters": "Active section updates can repeat frequently during scrolling."
+    }
+  ]
+}

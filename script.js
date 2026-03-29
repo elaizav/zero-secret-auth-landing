@@ -1,41 +1,85 @@
-const burger = document.getElementById('burger');
-const menu = document.getElementById('site-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const sectionTargets = document.querySelectorAll('main section[id]');
-const isUkrainian = document.documentElement.lang === 'uk';
-const openLabel = isUkrainian ? 'Відкрити меню' : 'Open menu';
-const closeLabel = isUkrainian ? 'Закрити меню' : 'Close menu';
+import {
+  createMenuState,
+  getSectionObserverOptions,
+  matchesSectionLink
+} from './script-helpers.mjs';
 
-if (burger && menu) {
-  burger.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('is-open');
-    document.body.classList.toggle('menu-open', isOpen);
-    burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? closeLabel : openLabel);
-  });
+/**
+ * Initializes the shared navigation behavior for the landing page.
+ *
+ * The function connects the burger menu with ARIA attributes, toggles
+ * body scrolling for the mobile state, and updates active navigation
+ * links according to the currently visible content section.
+ *
+ * @param {object} [options] Optional runtime references used to keep the implementation
+ *   testable and explicit.
+ * @param {Document} [options.documentRef] Document object used by the page.
+ * @returns {void}
+ * @example
+ * initializeNavigationEnhancements();
+ */
+export function initializeNavigationEnhancements(options = {}) {
+  const documentRef = options.documentRef ?? document;
+  const burger = documentRef.getElementById('burger');
+  const menu = documentRef.getElementById('site-menu');
+  const navLinks = [...documentRef.querySelectorAll('.nav-link')];
+  const sectionTargets = [...documentRef.querySelectorAll('main section[id]')];
+  const languageCode = documentRef.documentElement.lang;
 
-  menu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('is-open');
-      document.body.classList.remove('menu-open');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', openLabel);
+  if (burger instanceof HTMLButtonElement && menu instanceof HTMLElement) {
+    burger.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      const menuState = createMenuState(isOpen, languageCode);
+
+      documentRef.body.classList.toggle(menuState.bodyClassName, menuState.isOpen);
+      burger.setAttribute('aria-expanded', menuState.ariaExpanded);
+      burger.setAttribute('aria-label', menuState.ariaLabel);
     });
-  });
-}
 
-if (navLinks.length && sectionTargets.length && 'IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach((link) => {
-        link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        const menuState = createMenuState(false, languageCode);
+
+        menu.classList.remove('is-open');
+        documentRef.body.classList.remove(menuState.bodyClassName);
+        burger.setAttribute('aria-expanded', menuState.ariaExpanded);
+        burger.setAttribute('aria-label', menuState.ariaLabel);
       });
     });
-  }, {
-    threshold: 0.45,
-    rootMargin: '-10% 0px -35% 0px'
-  });
+  }
 
-  sectionTargets.forEach((section) => observer.observe(section));
+  if (
+    navLinks.length > 0
+    && sectionTargets.length > 0
+    && typeof IntersectionObserver === 'function'
+  ) {
+    const observerOptions = getSectionObserverOptions();
+
+    /**
+     * Updates navigation link states according to the currently visible section.
+     *
+     * @param {IntersectionObserverEntry[]} entries Entries provided by the observer callback.
+     * @returns {void}
+     */
+    function handleObservedEntries(entries) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href');
+          link.classList.toggle('is-active', matchesSectionLink(href, entry.target.id));
+        });
+      });
+    }
+
+    const observer = new IntersectionObserver(handleObservedEntries, observerOptions);
+
+    sectionTargets.forEach((section) => observer.observe(section));
+  }
+}
+
+if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+  initializeNavigationEnhancements();
 }

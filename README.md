@@ -1,36 +1,44 @@
 # Zero Secret Auth Landing
 
-Статичний лендінг і сторінка публічних матеріалів до бакалаврської роботи на тему:
+Static academic landing page and research materials for the bachelor thesis topic:
 
-«Методологія та інструментальні засоби розробки систем автентифікації за моделлю Zero Secret Server Authentication».
+`Methodology and Instrumental Tools for Developing Authentication Systems Based on the Zero Secret Server Authentication Model`
 
 GitHub Pages: `https://elaizav.github.io/zero-secret-auth-landing/`
 
-## Що є в репозиторії
+## Repository structure
 
-- односторінковий лендінг українською мовою;
-- англомовна версія в `en/`;
-- сторінка `materials/` з чесно позначеним розгорнутим описом дослідження;
-- статичні ресурси для GitHub Pages без додаткового білду.
+- `index.html` — Ukrainian main page
+- `en/` — English version
+- `materials/` — extended research materials
+- `script.js` — shared browser-side behavior
+- `script-helpers.mjs` — pure helper functions used by the browser script and tests
+- `build.mjs` — minimal static build step for `dist/`
 
-## Стратегія розробки
+## Development approach
 
-Для Lab 2 використовується `Trunk-Based Development`:
+The project follows `Trunk-Based Development` with small direct integrations into `main`.
 
-- основна гілка розробки: `main`;
-- зміни інтегруються малими кроками;
-- історія етапів фіксується змістовними тегами;
-- довгоживучі feature/release branches не підтримуються.
+## Quality workflow
 
-## Теги етапів
+- `npm run lint` — ESLint and Stylelint
+- `npm run typecheck` — TypeScript check-only mode for JavaScript
+- `npm run docs:test` — executable documentation examples
+- `npm run docs:generate` — HTML reference generation with JSDoc
+- `npm run check` — full project verification
+- `npm run build` — verification plus static copy to `dist/`
 
-- `v0.1.0`
-- `v0.1.1`
-- `v0.2.0`
-- `v0.3.0`
-- `v1.0.0`
-- `v1.1.0`
+## Documentation policy
 
-## Локальний запуск
+The project uses JSDoc for meaningful public functions and build helpers.
 
-Сайт не потребує збірки. Для локального перегляду достатньо відкрити `index.html` у браузері або підняти будь-який простий статичний сервер у корені репозиторію.
+Future contributions should:
+
+- document exported or shared functions with JSDoc;
+- keep `@param`, `@returns`, and `@example` tags aligned with real behavior;
+- update the Markdown files in `docs/` when architecture, interaction flow, or research logic changes;
+- keep tests in `tests/` as executable examples for helper logic.
+
+## Local run
+
+The site does not require a framework build. Open `index.html` in a browser for a quick preview, or run the existing npm verification scripts for the full workflow.

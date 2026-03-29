@@ -42,6 +42,9 @@ Install the following on a clean machine:
 
 ### Main local commands
 
+- `npm run dev` - serve the repository root with the logging-enabled static server
+- `npm run serve` - serve `dist/` with the logging-enabled static server
+- `npm run logs:tail` - print recent lines from the latest rotating log file
 - `npm run lint` - ESLint and Stylelint
 - `npm run typecheck` - TypeScript check-only mode for JavaScript
 - `npm run docs:test` - executable documentation examples
@@ -55,6 +58,7 @@ Install the following on a clean machine:
 Quick preview options:
 
 - open `index.html` directly in a browser for a fast content check
+- run `npm run dev` for a local static server with request logging and custom error pages
 - or run `python -m http.server 8080` in the repository root and open `http://localhost:8080/`
 - or use the helper scripts in `docs/scripts/preview-local.ps1` and `docs/scripts/preview-local.sh`
 
@@ -79,6 +83,8 @@ Components not used in this project:
 - no DBMS
 - no runtime cache service
 - no object storage layer beyond ordinary static file hosting
+
+For Lab 7, a lightweight Node static server is included only for self-hosted preview and runtime logging. GitHub Pages compatibility remains unchanged.
 
 ## Quality workflow
 
